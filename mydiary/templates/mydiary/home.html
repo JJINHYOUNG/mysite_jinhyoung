@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'mydiary/css/style.css' %}" />
+    <h1 style="font-family: NanumBrush;"><br>그림공유 플랫폼<br></h1>
+</head>
+<body>
+    <header>오늘 하루를 그림일기로 보여주세요.</header>
+    <main><br>올라온 그림들<br></main>
+    <footer><a href="{% url 'new' %}">일기 업로드 하기.</a></footer>
+</body>
+</html>
+{% for post in posts_list %}
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.pup_date }}</p>
+    <p>{{ post.body|linebreaks }}</p>
+    <hr>
+{% endfor %}
